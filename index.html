@@ -9,7 +9,14 @@
   <body class="mixpanel-platform-body">
     
     <script>
-      // Run queries and display results here
+      var params = {
+          type: 'general',  
+          limit: 3          
+      };
+
+      MP.api.topEvents(params).done(function(results) {
+          
+      });
     </script>
   </body>
 </html>
