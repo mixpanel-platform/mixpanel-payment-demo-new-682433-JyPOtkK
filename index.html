@@ -67,7 +67,15 @@
               limit: 255    
           };
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
-              
+            for(var key2 in results.values()){
+              var row = table.insertRow(rowNum);
+              row.id = "eventRow"+rowNum;
+              row.className = "eventRow";
+              var cell1 = row.insertCell(0);
+              var cell2 = row.insertCell(1);
+              cell1.innerHTML = "";
+              cell2.innerHTML = results2.values()[key2];
+            }
           });
         }
       });
