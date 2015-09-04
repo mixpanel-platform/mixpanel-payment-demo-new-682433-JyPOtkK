@@ -40,8 +40,9 @@
 
     <script>
     /*
-    TODO:
-    
+    TODO ideas:
+    - have event counts and order per count 
+    - have colors indicate default properties versus not
     */
       // Get table and delete any current rows 
       var table = document.getElementById("t01");
@@ -61,16 +62,14 @@
           cell1.innerHTML = results.values()[key];
           cell2.innerHTML = "";
           rowNum++;
-          console.log(results.values()[key]);
+          /* HERE TODO: list all properties in cell 2 */
+          var params = {
+              limit: 255    
+          };
+          MP.api.topProperties(results.values()[key], params).done(function(results2) {
+              
+          });
         }
-        /*
-        if(results.results.events.length == 0) {
-          alert('No results');
-        }
-        for(var i = 0; i < results.results.events.length; i++){
-          console.log(results.values());
-        }*/
-          
       });
     </script>
   </body>
