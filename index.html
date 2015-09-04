@@ -57,8 +57,8 @@
     */
       // Get table and delete any current rows 
       var table = document.getElementById("t01");
-      while(table.rows.length > 0) {
-        table.deleteRow(0);
+      while(table.rows.length > 1) {
+        table.deleteRow(1);
       }
       var params = {
           type: 'general',  
