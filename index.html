@@ -16,11 +16,7 @@
 
       MP.api.topEvents(params).done(function(results) {
           console.log(results.values());
-          $('<div></div>').appendTo('body').MPTable({ // create table; try scrolling horizontally over demo below
-            data: results,
-            showPercentages: true,
-            firstColHeader: 'HEADER'
-        });
+          
       });
     </script>
   </body>
