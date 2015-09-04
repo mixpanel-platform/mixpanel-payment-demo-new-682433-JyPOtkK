@@ -53,6 +53,7 @@
 
       MP.api.topEvents(params).done(function(results) {
         var rowNum = 1;
+        // for each event
         for(var key in results.values()){
           var row = table.insertRow(rowNum);
           row.id = "eventRow"+rowNum;
@@ -67,7 +68,6 @@
               limit: 255    
           };
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
-            
             for(var key2 in results2.values()){
               var row = table.insertRow(rowNum);
               row.id = "eventRow"+rowNum;
@@ -76,6 +76,7 @@
               var cell2 = row.insertCell(1);
               cell1.innerHTML = "";
               cell2.innerHTML = key2;
+              rowNum++;
             }
           });
         }
