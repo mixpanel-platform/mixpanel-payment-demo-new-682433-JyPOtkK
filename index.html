@@ -66,7 +66,17 @@
       };
 
       MP.api.topEvents(params).done(function(results) {
+        var rowNum = 0;
+        for(var key in results.values()){
+          console.log(key);
+        }
+        /*
+        if(results.results.events.length == 0) {
+          alert('No results');
+        }
+        for(var i = 0; i < results.results.events.length; i++){
           console.log(results.values());
+        }*/
           
       });
     </script>
