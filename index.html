@@ -67,6 +67,7 @@
           var params = {
               limit: 255    
           };
+          var queryDone = false;
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
             for(var key2 in results2.values()){
               var row = table.insertRow(rowNum);
@@ -78,7 +79,11 @@
               cell2.innerHTML = key2;
               rowNum++;
             }
+            queryDone = true;
           });
+          while(!queryDone){
+            
+          }
         }
       });
     </script>
