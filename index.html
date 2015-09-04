@@ -36,18 +36,6 @@
     <th>Events</th>
     <th>Properties</th>		
   </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>		
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>		
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>		
-  </tr>
 </table>
 
     <script>
@@ -66,7 +54,7 @@
         var rowNum = 1;
         for(var key in results.values()){
           var row = table.insertRow(rowNum);
-          row.id = "eventRow"+i;
+          row.id = "eventRow"+rowNum;
           row.className = "eventRow";
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
