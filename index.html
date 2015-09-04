@@ -68,7 +68,7 @@
       MP.api.topEvents(params).done(function(results) {
         var rowNum = 0;
         for(var key in results.values()){
-          console.log(key);
+          console.log(results.values()[key]);
         }
         /*
         if(results.results.events.length == 0) {
