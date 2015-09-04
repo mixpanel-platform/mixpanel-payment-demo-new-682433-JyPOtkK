@@ -57,17 +57,22 @@
     */
       // Get table and delete any current rows 
       var table = document.getElementById("t01");
-      while(table.rows.length > 1) {
-        table.deleteRow(1);
-      }
       var params = {
           type: 'general',  
           limit: 10000          
       };
 
       MP.api.topEvents(params).done(function(results) {
-        var rowNum = 0;
+        var rowNum = 1;
         for(var key in results.values()){
+          var row = table.insertRow(rowNum);
+          row.id = "eventRow"+i;
+          row.className = "eventRow";
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.innerHTML = results.values()[key];
+          cell2.innerHTML = "";
+          rowNum++;
           console.log(results.values()[key]);
         }
         /*
