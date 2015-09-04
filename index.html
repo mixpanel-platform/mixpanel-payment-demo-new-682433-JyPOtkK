@@ -67,7 +67,8 @@
               limit: 255    
           };
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
-            for(var key2 in results.values()){
+            
+            for(var key2 in results2.values()){
               var row = table.insertRow(rowNum);
               row.id = "eventRow"+rowNum;
               row.className = "eventRow";
