@@ -55,6 +55,11 @@
     TODO:
     
     */
+      // Get table and delete any current rows 
+      var table = document.getElementById("eventTable");
+      while(table.rows.length > 0) {
+        table.deleteRow(0);
+      }
       var params = {
           type: 'general',  
           limit: 10000          
