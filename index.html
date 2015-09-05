@@ -83,8 +83,10 @@
             queryDone = true;
             console.log(queryDone);
           });
-          while(!queryDone){
-            console.log(queryDone);
+          while(true){
+            if(queryDone){
+              break;
+            }
           }
         }
       });
