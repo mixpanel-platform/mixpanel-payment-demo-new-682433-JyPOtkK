@@ -46,7 +46,9 @@
     */
       // Get table and delete any current rows 
       var table = document.getElementById("t01");
-      var queryDone = false;
+      var propQueryCount = 0;
+      var eventList = [];
+      var eventPropDict = {};
       var params = {
           type: 'general',  
           limit: 10000          
@@ -56,7 +58,22 @@
         var rowNum = 1;
         // for each event
         for(var key in results.values()){
-          var row = table.insertRow(rowNum);
+          /* HERE TODO: list all properties in cell 2 */
+          var params = {
+              limit: 255    
+          };
+          MP.api.topProperties(results.values()[key], params).done(function(results2) {
+            for(var key2 in results2.values()){
+              eventPropDict[results.values()[key]] = key2;
+              console.log(eventPropDict);
+            }
+            propQueryCount++;
+          });
+        }
+      });
+      
+      /*code for creating a row
+      var row = table.insertRow(rowNum);
           row.id = "eventRow"+rowNum;
           row.className = "eventRow";
           var cell1 = row.insertCell(0);
@@ -64,32 +81,7 @@
           cell1.innerHTML = results.values()[key];
           cell2.innerHTML = "";
           rowNum++;
-          /* HERE TODO: list all properties in cell 2 */
-          var params = {
-              limit: 255    
-          };
-          queryDone = false;
-          MP.api.topProperties(results.values()[key], params).done(function(results2) {
-            for(var key2 in results2.values()){
-              var row = table.insertRow(rowNum);
-              row.id = "eventRow"+rowNum;
-              row.className = "eventRow";
-              var cell1 = row.insertCell(0);
-              var cell2 = row.insertCell(1);
-              cell1.innerHTML = "";
-              cell2.innerHTML = key2;
-              rowNum++;
-            }
-            queryDone = true;
-            console.log(queryDone);
-          });
-          while(true){
-            if(queryDone){
-              break;
-            }
-          }
-        }
-      });
+          */
     </script>
   </body>
 </html>
