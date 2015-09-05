@@ -59,18 +59,16 @@
         // for each event
         for(var key in results.values()){
           eventPropDict[results.values()[key]] = [];
-        }
-        var params = {
+          var params = {
               limit: 255    
           };
-        for(var key in results.values()){
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
-              for(var key2 in results2.values()){
-                eventPropDict[results.values()[key]].push(key2);
-                console.log(eventPropDict);
-              }
-              propQueryCount++;
-            });
+            for(var key2 in results2.values()){
+              eventPropDict[results.values()[key]].push(key2);
+            }
+            propQueryCount++;
+          });
+          console.log(propQueryCount);
         }
       });
       
