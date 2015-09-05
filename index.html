@@ -58,13 +58,13 @@
         var rowNum = 1;
         // for each event
         for(var key in results.values()){
-          /* HERE TODO: list all properties in cell 2 */
+          eventPropDict[results.values()[key]] = [];
           var params = {
               limit: 255    
           };
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
             for(var key2 in results2.values()){
-              eventPropDict[results.values()[key]] = key2;
+              eventPropDict[results.values()[key]].push(key2);
               console.log(eventPropDict);
             }
             propQueryCount++;
