@@ -46,7 +46,7 @@
     */
       // Get table and delete any current rows 
       var table = document.getElementById("t01");
-      window.queryDone = false;
+      var queryDone = false;
       var params = {
           type: 'general',  
           limit: 10000          
@@ -68,7 +68,7 @@
           var params = {
               limit: 255    
           };
-          window.queryDone = false;
+          queryDone = false;
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
             for(var key2 in results2.values()){
               var row = table.insertRow(rowNum);
@@ -80,11 +80,10 @@
               cell2.innerHTML = key2;
               rowNum++;
             }
-            window.queryDone = true;
+            var queryDone = true;
+            console.log(queryDone);
           });
-          while(!window.queryDone){
-            
-          }
+          
         }
       });
     </script>
