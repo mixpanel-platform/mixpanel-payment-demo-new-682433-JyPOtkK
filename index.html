@@ -58,16 +58,10 @@
         var rowNum = 1;
         // for each event
         for(var key in results.values()){
-          var row = table.insertRow(rowNum);
-          row.id = "eventRow"+rowNum;
-          row.className = "eventRow";
-          var cell1 = row.insertCell(0);
-          var cell2 = row.insertCell(1);
-          cell1.innerHTML = results.values()[key];
-          cell2.innerHTML = "";
-          rowNum++;
-          eventPropDict[results.values()[key]] = [];
-          var params = {
+          eventList.push(results.values()[key]);
+        }
+        /*
+        var params = {
               limit: 255    
           };
           MP.api.topProperties(results.values()[key], params).done(function(results2) {
@@ -75,8 +69,7 @@
               eventPropDict[results.values()[key]].push(key2);
             }
             propQueryCount++;
-          });
-        }
+          });*/
       });
       
       /*code for creating a row
@@ -89,6 +82,10 @@
           cell2.innerHTML = "";
           rowNum++;
           */
+          
+      function buildEventAndPropsRecurse(eventArr, rowCount){
+        
+      }
     </script>
   </body>
 </html>
