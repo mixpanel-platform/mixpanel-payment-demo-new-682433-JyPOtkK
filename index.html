@@ -58,6 +58,14 @@
         var rowNum = 1;
         // for each event
         for(var key in results.values()){
+          var row = table.insertRow(rowNum);
+          row.id = "eventRow"+rowNum;
+          row.className = "eventRow";
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.innerHTML = results.values()[key];
+          cell2.innerHTML = "";
+          rowNum++;
           eventPropDict[results.values()[key]] = [];
           var params = {
               limit: 255    
