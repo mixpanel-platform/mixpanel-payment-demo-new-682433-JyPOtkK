@@ -60,6 +60,7 @@
         for(var key in results.values()){
           eventList.push(results.values()[key]);
         }
+        buildEventAndPropsRecurse(eventList, rowNum);
         /*
         var params = {
               limit: 255    
@@ -84,7 +85,14 @@
           */
           
       function buildEventAndPropsRecurse(eventArr, rowCount){
-        
+        if(eventArr.length == 0) {
+          return;
+        }
+        else {
+          var event = eventArr.pop();
+          console.log(event);
+          buildEventAndPropsRecurse(eventArr, rowCount);
+        }
       }
     </script>
   </body>
