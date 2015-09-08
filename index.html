@@ -84,14 +84,36 @@
           rowNum++;
           */
           
-      function buildEventAndPropsRecurse(eventArr, rowCount){
+      function buildEventAndPropsRecurse(eventArr, rowNum){
         if(eventArr.length == 0) {
           return;
         }
         else {
           var event = eventArr.pop();
-          console.log(event);
-          buildEventAndPropsRecurse(eventArr, rowCount);
+          MP.api.topProperties(event, {limit:255}).done(function(results) {
+            // Add event
+            var row = table.insertRow(rowNum);
+            row.id = "eventRow"+rowNum;
+            row.className = "eventRow";
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            cell1.innerHTML = event;
+            cell2.innerHTML = "";
+            rowNum++;
+            // Add props 
+            for(var property in results.values()){
+              var row = table.insertRow(rowNum);
+              row.id = "propertyRow"+rowNum;
+              row.className = "propertyRow";
+              var cell1 = row.insertCell(0);
+              var cell2 = row.insertCell(1);
+              cell1.innerHTML = "";
+              cell2.innerHTML = property;
+              rowNum++;
+            }
+            buildEventAndPropsRecurse(eventArr, rowNum);
+          });
+          
         }
       }
     </script>
